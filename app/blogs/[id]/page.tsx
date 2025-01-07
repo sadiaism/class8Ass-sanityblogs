@@ -1,12 +1,7 @@
 import React from 'react'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from "@/sanity/lib/image";
-export const revalidate =10 //seconds
-
-interface Params{
-    id:string
-}
-
+export const revalidate =10 //second
 
 export default async function page (){
   
