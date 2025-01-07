@@ -1,16 +1,25 @@
 import {client} from "../sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 export const revalidate =10 //seconds
 
 interface Iblog{
-  name:string,
+  title:string,
   image:string,
-  buttonText:string
+  buttonText:string;
+  slug:string;
+  content:[],
+  summary:string,
+  author:string,
+
+
 }
 
 export default async function Home() {
-  const res:Iblog[] = await client.fetch(`*[_type == "blog"]`)
+  const res:Iblog[] = await client.fetch(`*[_type == "blog"]{
+     name,image,buttonText,
+    "slug":slug.current}`)
  console.log(res);
 
   return (
@@ -21,14 +30,14 @@ export default async function Home() {
            
             return(
              <div key={index} className="flex flex-col justify-center items-center gap-[24px]">
-              <h1 className="text-[24px] font-bold text-blue-800">{blog.name}</h1>
+              <h1 className="text-[24px] font-bold text-blue-800">{blog.title}</h1>
 
               <img className="rounded-full" src ={urlFor(blog.image).url()}
               alt ="Image"
               width ={300}
               height ={300}/>
 
-               <h1 className="border-[1px] border-[#000000] w-[150px] h-[40px] rounded-2xl p-[7px] pl-[24px] bg-black text-white hover:bg-slate-500">{blog.buttonText}</h1>
+               <Link href={`/blog/${blog.slug}`}><h1 className="border-[1px] border-[#000000] w-[150px] h-[40px] rounded-2xl p-[7px] pl-[24px] bg-black text-white hover:bg-slate-500">{blog.buttonText}</h1></Link>
              </div>
             )
           })
