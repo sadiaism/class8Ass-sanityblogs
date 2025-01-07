@@ -12,6 +12,10 @@ console.log(blog)
 return(
     <div>
         <h1>{blog.title}</h1>
+        <img className="rounded-full" src ={urlFor(blog.image).url()}
+              alt ="Image"
+              width ={300}
+              height ={300}/>
         <h2>{blog.summary}</h2>
         <h3>{blog.content}</h3>
         <h4>{blog.author}</h4>
