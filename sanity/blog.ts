@@ -1,4 +1,6 @@
 // sanity/blog.ts
+export const revalidate =10 //seconds
+
 export default {
     name: 'blog',
     type: 'document',
