@@ -1,6 +1,7 @@
 import {client} from "../sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
+import Image from "next/image";
 
 export const revalidate =10 //seconds
 
@@ -32,7 +33,7 @@ export default async function Home() {
              <div key={index} className="flex flex-col justify-center items-center gap-[24px]">
               <h1 className="text-[24px] font-bold text-blue-800">{blog.title}</h1>
 
-              <img className="rounded-full" src ={urlFor(blog.image).url()}
+              <Image className="rounded-full" src ={urlFor(blog.image).url()}
               alt ="Image"
               width ={300}
               height ={300}/>
