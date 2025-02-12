@@ -18,7 +18,7 @@ interface Iblog{
 
 export default async function Home() {
   const res:Iblog[] = await client.fetch(`*[_type == "blog"]{
-     name,image,buttonText,
+     title,image,buttonText,
     "slug":slug.current}`)
  console.log(res);
 
@@ -37,7 +37,7 @@ export default async function Home() {
               width ={300}
               height ={300}/>
 
-               <Link href={`/blog/${blog.slug}`}><h1 className="border-[1px] border-[#000000] w-[150px] h-[40px] rounded-2xl p-[7px] pl-[24px] bg-black text-white hover:bg-slate-500">{blog.buttonText}</h1></Link>
+               <Link href={`blogs/${blog.slug}`}><h1 className="border-[1px] border-[#000000] w-[150px] h-[40px] rounded-2xl p-[7px] pl-[24px] bg-black text-white hover:bg-slate-500">{blog.buttonText}</h1></Link>
              </div>
             )
           })

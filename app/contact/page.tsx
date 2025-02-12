@@ -19,6 +19,15 @@ const page = () => {
                     <input type="text"
                     className='h-[100px] w-[350px] bg-transparent border border-black md:w-[540px] p-[12px]'
                     id="message" />
+
+
+           <input type="Submit"
+                    className='h-[100px] w-[350px] bg-transparent border border-black md:w-[540px] p-[12px] hover:bg-slate-600'
+                    id="submit" />
+
+
+                     
+
         </h1>
 
         <h2 className='font-bold text-[20px]'>Fill out our form and we will contact you within 24 hours.</h2>

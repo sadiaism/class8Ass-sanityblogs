@@ -1,6 +1,6 @@
 // sanity/blog.ts
 import {defineField} from "sanity"
-export const revalidate =10 //seconds
+
 
 export default{
     name: 'blog',
